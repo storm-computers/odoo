@@ -14,5 +14,5 @@ with a single statement.
     'depends': ['account'],
     'demo': ['demo/iban_demo.xml'],
     'installable': True,
-    'auto_install': False,
+    'auto_install': True,
 }
