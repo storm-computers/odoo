@@ -44,7 +44,7 @@ class Registry(Mapping):
         # special cursor for test mode; None means "normal" mode
         self.test_cr = None
 
-        # Indicates that the registry is 
+        # Indicates that the registry is
         self.ready = False
 
         # Inter-process signaling (used only when openerp.multi_process is True):
@@ -234,7 +234,7 @@ class Registry(Mapping):
             cr.execute("""SELECT nextval('base_registry_signaling')""")
             cr.execute("""CREATE SEQUENCE base_cache_signaling INCREMENT BY 1 START WITH 1""")
             cr.execute("""SELECT nextval('base_cache_signaling')""")
-        
+
         cr.execute("""
                     SELECT base_registry_signaling.last_value,
                            base_cache_signaling.last_value
