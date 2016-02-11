@@ -85,7 +85,6 @@ class SaleOrder(models.Model):
         default_team_id = self.env['crm.team']._get_default_team_id()
         return self.env['crm.team'].browse(default_team_id)
 
-    @api.constrains('fiscal_position_id')
     @api.onchange('fiscal_position_id')
     def _compute_tax_id(self):
         """
@@ -313,6 +312,8 @@ class SaleOrder(models.Model):
                     line.invoice_line_create(invoices[group_key].id, line.qty_to_invoice)
 
         for invoice in invoices.values():
+            if not invoice.invoice_line_ids:
+                raise UserError(_('There is no invoicable line.'))
             # If invoice is negative, do a refund invoice instead
             if invoice.amount_untaxed < 0:
                 invoice.type = 'out_refund'
@@ -326,7 +327,12 @@ class SaleOrder(models.Model):
 
     @api.multi
     def action_draft(self):
-        self.filtered(lambda s: s.state in ['cancel', 'sent']).write({'state': 'draft'})
+        orders = self.filtered(lambda s: s.state in ['cancel', 'sent'])
+        orders.write({
+            'state': 'draft',
+            'procurement_group_id': False,
+        })
+        orders.mapped('order_line').mapped('procurement_ids').write({'sale_line_id': False})
 
     @api.multi
     def action_cancel(self):
