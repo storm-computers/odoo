@@ -16,3 +16,4 @@ Dalibor Ružić dalibor.ruzic@storm.hr https://github.com/druzic_storm
 Davor Bojkić davor.bojkic@storm.hr https://github.com/storm-dbojkic
 Stjepan Lovasic stjepan.lovasic@storm.hr https://github.com/storm-slovasic
 Vladimir Olujic olujic.vladimir@storm.hr https://github.com/storm-volujic
+Matija Pildek matija.pildek¢storm.hr https://github.com/storm-mpildek
