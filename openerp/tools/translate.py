@@ -243,8 +243,11 @@ class XMLTranslator(object):
 
         # process children nodes locally in child_trans
         child_trans = XMLTranslator(self.callback, self.method, parser=self.parser)
-        if node.text and not avoid_pattern.match(node.text):
-            child_trans.todo(escape(node.text))
+        if node.text:
+            if avoid_pattern.match(node.text):
+                child_trans.done(escape(node.text)) # do not translate <!DOCTYPE...
+            else:
+                child_trans.todo(escape(node.text))
         for child in node:
             child_trans.process(child)
 
@@ -950,8 +953,9 @@ def trans_generate(lang, modules, cr):
 
     def get_module_from_path(path):
         for (mp, rec) in path_list:
+            mp = os.path.join(mp, '')
             if rec and path.startswith(mp) and os.path.dirname(path) != mp:
-                path = path[len(mp)+1:]
+                path = path[len(mp):]
                 return path.split(os.path.sep)[0]
         return 'base' # files that are not in a module are considered as being in 'base' module
 
