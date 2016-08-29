@@ -204,7 +204,7 @@ class AccountInvoice(models.Model):
         track_visibility='always')
 
     number = fields.Char(related='move_id.name', store=True, readonly=True, copy=False)
-    move_name = fields.Char(string='Journal Entry', readonly=True,
+    move_name = fields.Char(string='Journal Entry', readonly=False,
         default=False, copy=False,
         help="Technical field holding the number given to the invoice, automatically set when the invoice is validated then stored to set the same number again if the invoice is cancelled, set to draft and re-validated.")
     reference = fields.Char(string='Vendor Reference',
@@ -1146,7 +1146,10 @@ class AccountInvoiceLine(models.Model):
             doc = etree.XML(res['arch'])
             for node in doc.xpath("//field[@name='product_id']"):
                 if self._context['type'] in ('in_invoice', 'in_refund'):
-                    node.set('domain', "[('purchase_ok', '=', True)]")
+                    # Hack to fix the stable version 8.0 -> saas-12
+                    # purchase_ok will be moved from purchase to product in master #13271
+                    if 'purchase_ok' in self.env['product.template']._fields:
+                        node.set('domain', "[('purchase_ok', '=', True)]")
                 else:
                     node.set('domain', "[('sale_ok', '=', True)]")
             res['arch'] = etree.tostring(doc)
