@@ -101,6 +101,9 @@ var FieldMany2One = common.AbstractField.extend(common.CompletionFieldMixin, com
             delete this.$dropdown;
         }
         if (this.$input) {
+            if (this.$input.data('ui-autocomplete')) {
+                this.$input.autocomplete("destroy");
+            }
             this.$input.closest(".modal .modal-content").off('scroll');
             this.$input.off('keyup blur autocompleteclose autocompleteopen ' +
                             'focus focusout change keydown');
@@ -766,6 +769,7 @@ var FieldX2Many = AbstractManyField.extend({
             }
             if(view.view_type === "list") {
                 _.extend(view.options, {
+                    action_buttons: false, // to avoid 'Save' and 'Discard' buttons to appear in X2M fields
                     addable: null,
                     selectable: self.multi_selection,
                     sortable: true,
