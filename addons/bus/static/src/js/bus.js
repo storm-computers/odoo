@@ -1,6 +1,7 @@
 odoo.define('bus.bus', function (require) {
 "use strict";
 
+var local_storage = require('web.local_storage');
 var session = require('web.session');
 var Widget = require('web.Widget');
 
@@ -261,12 +262,12 @@ function on(type, listener) {
 }
 
 function getItem(key, defaultValue) {
-    var val = localStorage.getItem(key);
+    var val = local_storage.getItem(key);
     return val ? JSON.parse(val) : defaultValue;
 }
 
 function setItem(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
+    local_storage.setItem(key, JSON.stringify(value));
 }
 
 var tab_manager = {
@@ -293,11 +294,11 @@ var tab_manager = {
 
             // unload master
             if (tab_manager.isMaster) {
-                localStorage.removeItem(tab_manager.masterKey);
+                local_storage.removeItem(tab_manager.masterKey);
             }
         });
 
-        if (!localStorage[tab_manager.masterKey]) {
+        if (!local_storage.getItem(tab_manager.masterKey)) {
             tab_manager.start_election();
         }
 
@@ -316,7 +317,7 @@ var tab_manager = {
     },
     heartbeat: function () {
         var current = new Date().getTime();
-        var heartbeatValue = localStorage[tab_manager.heartbeatKey] || 0;
+        var heartbeatValue = local_storage.getItem(tab_manager.heartbeatKey) || 0;
         var peers = getItem(tab_manager.peersKey, {});
 
         if ((parseInt(heartbeatValue) + 5000) < current) {
@@ -341,7 +342,7 @@ var tab_manager = {
                 tab_manager.is_no_longer_master();
             } else {
                 tab_manager.last_heartbeat = current;
-                localStorage[tab_manager.heartbeatKey] = current;
+                local_storage.setItem(tab_manager.heartbeatKey, current);
                 setItem(tab_manager.peersKey, cleanedPeers);
             }
         } else {
@@ -356,7 +357,7 @@ var tab_manager = {
         }, tab_manager.isMaster ? MASTER_TAB_HEARTBEAT_PERIOD : TAB_HEARTBEAT_PERIOD);
     },
     is_last_heartbeat_mine: function () {
-        var heartbeatValue = localStorage[tab_manager.heartbeatKey] || 0;
+        var heartbeatValue = local_storage.getItem(tab_manager.heartbeatKey) || 0;
         return (parseInt(heartbeatValue) === tab_manager.last_heartbeat);
     },
     start_election: function () {
