@@ -1,46 +1,47 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * payment_sips
-# 
+#
 # Translators:
 # David Hernandez <davidhernandez.ctam@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 08:11+0000\n"
-"PO-Revision-Date: 2016-09-23 18:42+0000\n"
+"POT-Creation-Date: 2016-08-18 14:07+0000\n"
+"PO-Revision-Date: 2016-01-20 18:41+0000\n"
 "Last-Translator: David Hernandez <davidhernandez.ctam@gmail.com>\n"
-"Language-Team: Spanish (Mexico) (http://www.transifex.com/odoo/odoo-9/language/es_MX/)\n"
+"Language-Team: Spanish (Mexico) (http://www.transifex.com/odoo/odoo-9/"
+"language/es_MX/)\n"
+"Language: es_MX\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es_MX\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: payment_sips
-#: code:addons/payment_sips/models/sips.py:166
+#: code:addons/payment_sips/models/sips.py:163
 #, python-format
 msgid "; multiple order found"
-msgstr "; orden multiple no encontrada"
+msgstr ""
 
 #. module: payment_sips
-#: code:addons/payment_sips/models/sips.py:164
+#: code:addons/payment_sips/models/sips.py:161
 #, python-format
 msgid "; no order found"
-msgstr "; ninguna orden encontrada"
+msgstr ""
 
 #. module: payment_sips
 #: model:payment.acquirer,cancel_msg:payment_sips.payment_acquirer_sips
 msgid "<span><i>Cancel,</i> Your payment has been cancelled.</span>"
-msgstr "<span> <i> Cancelar, </i> Su pago ha sido cancelado. </span>"
+msgstr ""
 
 #. module: payment_sips
 #: model:payment.acquirer,done_msg:payment_sips.payment_acquirer_sips
 msgid ""
 "<span><i>Done,</i> Your online payment has been successfully processed. "
 "Thank you for your order.</span>"
-msgstr "<span> <i> Fin, </i> Su pago en linea ha sido procesado exitosamente. Gracias por su orden. </span>"
+msgstr ""
 
 #. module: payment_sips
 #: model:payment.acquirer,error_msg:payment_sips.payment_acquirer_sips
@@ -48,23 +49,23 @@ msgid ""
 "<span><i>Error,</i> Please be aware that an error occurred during the "
 "transaction. The order has been confirmed but won't be paid. Don't hesitate "
 "to contact us if you have any questions on the status of your order.</span>"
-msgstr "<span> <i> Erro, </i> Por favor teng en cuenta que un error ocurrio durante la transacciòn. La orden ha sido confirmada pero no sera pagada. No dude en contactarnos si tiene alguna duda sobre el estado de su orden. </span>"
+msgstr ""
 
 #. module: payment_sips
 #: model:payment.acquirer,pending_msg:payment_sips.payment_acquirer_sips
 msgid ""
 "<span><i>Pending,</i> Your online payment has been successfully processed. "
 "But your order is not validated yet.</span>"
-msgstr "Pendiente, Su pago en linea ha sido exitosamente procesado. Pero su orden aun no ha sido validada."
+msgstr ""
 
 #. module: payment_sips
-#: code:addons/payment_sips/models/sips.py:87
+#: code:addons/payment_sips/models/sips.py:84
 #, python-format
 msgid "Currency not supported by Wordline"
 msgstr "Moneda no soportada por Wordline"
 
 #. module: payment_sips
-#: code:addons/payment_sips/models/sips.py:68
+#: code:addons/payment_sips/models/sips.py:65
 #, python-format
 msgid "Incorrect payment acquirer provider"
 msgstr "Incorrecto pago del proveedor adquirente"
@@ -95,7 +96,7 @@ msgid "Sips"
 msgstr ""
 
 #. module: payment_sips
-#: code:addons/payment_sips/models/sips.py:162
+#: code:addons/payment_sips/models/sips.py:159
 #, python-format
 msgid "Sips: received data for reference %s"
 msgstr "Sips: recibieron datos de referencia %s"
@@ -104,4 +105,6 @@ msgstr "Sips: recibieron datos de referencia %s"
 #: model:payment.acquirer,pre_msg:payment_sips.payment_acquirer_sips
 msgid ""
 "You will be redirected to the Sips website after clicking on payment button."
-msgstr "Usted será re-dirigido a la página web Sips después de hacer clic en el botón de pago."
+msgstr ""
+"Usted será re-dirigido a la página web Sips después de hacer clic en el "
+"botón de pago."
