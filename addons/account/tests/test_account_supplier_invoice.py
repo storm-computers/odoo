@@ -1,5 +1,5 @@
-from openerp.addons.account.tests.account_test_classes import AccountingTestCase
-from openerp.exceptions import Warning
+from odoo.addons.account.tests.account_test_classes import AccountingTestCase
+from odoo.exceptions import Warning
 
 class TestAccountSupplierInvoice(AccountingTestCase):
 
@@ -36,7 +36,7 @@ class TestAccountSupplierInvoice(AccountingTestCase):
         self.assertTrue((invoice.state == 'draft'), "Initially vendor bill state is Draft")
 
         #change the state of invoice to open by clicking Validate button
-        invoice.signal_workflow('invoice_open')
+        invoice.action_invoice_open()
 
         #I cancel the account move which is in posted state and verifies that it gives warning message
         with self.assertRaises(Warning):
@@ -92,7 +92,7 @@ class TestAccountSupplierInvoice(AccountingTestCase):
         self.assertTrue((invoice.state == 'draft'), "Initially vendor bill state is Draft")
 
         #change the state of invoice to open by clicking Validate button
-        invoice.signal_workflow('invoice_open')
+        invoice.action_invoice_open()
 
         # Check if amount and corresponded base is correct for all tax scenarios given on a computational base
         # Keep in mind that tax amount can be changed by the user at any time before validating (based on the invoice and tax laws applicable)

@@ -3,10 +3,10 @@
 from operator import itemgetter
 import time
 
-from openerp import api, fields, models, _
-from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
-from openerp.exceptions import ValidationError
-
+from odoo import api, fields, models, _
+from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from odoo.exceptions import ValidationError
+from odoo.addons.base.res.res_partner import WARNING_MESSAGE, WARNING_HELP
 
 class AccountFiscalPosition(models.Model):
     _name = 'account.fiscal.position'
@@ -44,26 +44,8 @@ class AccountFiscalPosition(models.Model):
             raise ValidationError(_('Invalid "Zip Range", please configure it properly.'))
         return True
 
-    @api.v7
-    def map_tax(self, cr, uid, fposition_id, taxes, context=None):
-        if not taxes:
-            return []
-        if not fposition_id:
-            return map(lambda x: x.id, taxes)
-        result = set()
-        for t in taxes:
-            ok = False
-            for tax in fposition_id.tax_ids:
-                if tax.tax_src_id.id == t.id:
-                    if tax.tax_dest_id:
-                        result.add(tax.tax_dest_id.id)
-                    ok = True
-            if not ok:
-                result.add(t.id)
-        return list(result)
-
-    @api.v8     # noqa
-    def map_tax(self, taxes):
+    @api.model     # noqa
+    def map_tax(self, taxes, product=None, partner=None):
         result = self.env['account.tax'].browse()
         for tax in taxes:
             tax_count = 0
@@ -76,24 +58,14 @@ class AccountFiscalPosition(models.Model):
                 result |= tax
         return result
 
-    @api.v7
-    def map_account(self, cr, uid, fposition_id, account_id, context=None):
-        if not fposition_id:
-            return account_id
-        for pos in fposition_id.account_ids:
-            if pos.account_src_id.id == account_id:
-                account_id = pos.account_dest_id.id
-                break
-        return account_id
-
-    @api.v8
+    @api.model
     def map_account(self, account):
         for pos in self.account_ids:
             if pos.account_src_id == account:
                 return pos.account_dest_id
         return account
 
-    @api.v8
+    @api.model
     def map_accounts(self, accounts):
         """ Receive a dictionary having accounts in values and try to replace those accounts accordingly to the fiscal position.
         """
@@ -429,10 +401,10 @@ class ResPartner(models.Model):
         string="Fiscal Position",
         help="The fiscal position will determine taxes and accounts used for the partner.", oldname="property_account_position")
     property_payment_term_id = fields.Many2one('account.payment.term', company_dependent=True,
-        string ='Customer Payment Term',
+        string='Customer Payment Terms',
         help="This payment term will be used instead of the default one for sale orders and customer invoices", oldname="property_payment_term")
     property_supplier_payment_term_id = fields.Many2one('account.payment.term', company_dependent=True,
-         string ='Vendor Payment Term',
+         string='Vendor Payment Terms',
          help="This payment term will be used instead of the default one for purchase orders and vendor bills", oldname="property_supplier_payment_term")
     ref_company_ids = fields.One2many('res.company', 'partner_id',
         string='Companies that refers to partner', oldname="ref_companies")
@@ -446,6 +418,9 @@ class ResPartner(models.Model):
     invoice_ids = fields.One2many('account.invoice', 'partner_id', string='Invoices', readonly=True, copy=False)
     contract_ids = fields.One2many('account.analytic.account', 'partner_id', string='Contracts', readonly=True)
     bank_account_count = fields.Integer(compute='_compute_bank_count', string="Bank")
+    trust = fields.Selection([('good', 'Good Debtor'), ('normal', 'Normal Debtor'), ('bad', 'Bad Debtor')], string='Degree of trust you have in this debtor', default='normal', company_dependent=True)
+    invoice_warn = fields.Selection(WARNING_MESSAGE, 'Invoice', help=WARNING_HELP, required=True, default="no-message")
+    invoice_warn_msg = fields.Text('Message for Invoice')
 
     @api.multi
     def _compute_bank_count(self):
@@ -463,3 +438,12 @@ class ResPartner(models.Model):
         return super(ResPartner, self)._commercial_fields() + \
             ['debit_limit', 'property_account_payable_id', 'property_account_receivable_id', 'property_account_position_id',
              'property_payment_term_id', 'property_supplier_payment_term_id', 'last_time_entries_checked']
+
+    def open_partner_history(self):
+        '''
+        This function returns an action that display invoices/refunds made for the given partners.
+        '''
+        action = self.env.ref('account.action_invoice_refund_out_tree')
+        result = action.read()[0]
+        result['domain'] = [('partner_id', 'in', self.ids)]
+        return result

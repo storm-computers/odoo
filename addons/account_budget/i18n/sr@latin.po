@@ -1,22 +1,36 @@
+# #-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * account_budget
-# 
+#
 # Translators:
 # Nemanja Dragovic <nemanjadragovic94@gmail.com>, 2015
+# #-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * account_budget
+#
+# Translators:
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 08:11+0000\n"
-"PO-Revision-Date: 2015-11-02 22:35+0000\n"
-"Last-Translator: Nemanja Dragovic <nemanjadragovic94@gmail.com>\n"
-"Language-Team: Serbian (Latin) (http://www.transifex.com/odoo/odoo-9/language/sr@latin/)\n"
+"POT-Creation-Date: 2016-08-18 14:07+0000\n"
+"PO-Revision-Date: 2015-09-19 08:17+0000\n"
+"Last-Translator: Martin Trigaux\n"
+"Language-Team: Serbian (Latin) (http://www.transifex.com/odoo/odoo-9/"
+"language/sr@latin/)\n"
+"Language: sr@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: sr@latin\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. module: account_budget
 #: model:ir.ui.view,arch_db:account_budget.report_budget
@@ -67,10 +81,16 @@ msgstr "<strong>Ukupno:</strong>"
 #: model:ir.actions.act_window,help:account_budget.act_crossovered_budget_view
 msgid ""
 "A budget is a forecast of your company's income and/or expenses\n"
-"                expected for a period in the future. A budget is defined on some\n"
-"                financial accounts and/or analytic accounts (that may represent\n"
+"                expected for a period in the future. A budget is defined on "
+"some\n"
+"                financial accounts and/or analytic accounts (that may "
+"represent\n"
 "                projects, departments, categories of products, etc.)"
-msgstr "Budžet je prognoza očekivanih prihoda i rashoda za Vaše preduzeće\nza neki period u budućnosti. Budžet je definisan nad nekim\nfinansijskim kontima i/ili analitičkim kontima (koji mogu predstavljati\nprojekte, sektore, kategorije proizvoda, itd.)"
+msgstr ""
+"Budžet je prognoza očekivanih prihoda i rashoda za Vaše preduzeće\n"
+"za neki period u budućnosti. Budžet je definisan nad nekim\n"
+"finansijskim kontima i/ili analitičkim kontima (koji mogu predstavljati\n"
+"projekte, sektore, kategorije proizvoda, itd.)"
 
 #. module: account_budget
 #: model:ir.model,name:account_budget.model_account_budget_crossvered_report
@@ -91,18 +111,18 @@ msgstr "Izveštaj budžeta za nalog analitičkog konta"
 #. module: account_budget
 #: model:ir.model.fields,field_description:account_budget.field_account_budget_post_account_ids
 #: model:ir.ui.view,arch_db:account_budget.view_budget_post_form
+#, fuzzy
 msgid "Accounts"
-msgstr "Konta"
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Konta\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Nalozi"
 
 #. module: account_budget
 #: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_lines_percentage
 msgid "Achievement"
 msgstr "Uspjesi"
-
-#. module: account_budget
-#: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_message_needaction
-msgid "Action Needed"
-msgstr "Potrebna akcija"
 
 #. module: account_budget
 #: model:ir.model,name:account_budget.model_account_analytic_account
@@ -191,18 +211,29 @@ msgstr "Budžeti"
 msgid ""
 "By keeping track of where your money goes, you may be less\n"
 "                likely to overspend, and more likely to meet your financial\n"
-"                goals. Forecast a budget by detailing the expected revenue per\n"
-"                analytic account and monitor its evolution based on the actuals\n"
+"                goals. Forecast a budget by detailing the expected revenue "
+"per\n"
+"                analytic account and monitor its evolution based on the "
+"actuals\n"
 "                realised during that period."
-msgstr "Vodeći računa o tome gdje Vaš novac odlazi, mogli biste više da\nuštedite i postignete svoje finansijske ciljeve. Projektujte budžet\ndetaljišući očekivanu dobit po analitičkom kontu i pratite realizaciju\nte dobiti tokom tog perioda."
+msgstr ""
+"Vodeći računa o tome gdje Vaš novac odlazi, mogli biste više da\n"
+"uštedite i postignete svoje finansijske ciljeve. Projektujte budžet\n"
+"detaljišući očekivanu dobit po analitičkom kontu i pratite realizaciju\n"
+"te dobiti tokom tog perioda."
 
 #. module: account_budget
 #: model:ir.ui.view,arch_db:account_budget.account_budget_analytic_view
 #: model:ir.ui.view,arch_db:account_budget.account_budget_crossvered_report_view
 #: model:ir.ui.view,arch_db:account_budget.account_budget_crossvered_summary_report_view
 #: model:ir.ui.view,arch_db:account_budget.account_budget_report_view
+#, fuzzy
 msgid "Cancel"
-msgstr "Poništi"
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Poništi\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Otkaži"
 
 #. module: account_budget
 #: model:ir.ui.view,arch_db:account_budget.crossovered_budget_view_form
@@ -211,8 +242,13 @@ msgstr "Poništi budžet"
 
 #. module: account_budget
 #: selection:crossovered.budget,state:0
+#, fuzzy
 msgid "Cancelled"
-msgstr "Poništeno"
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Poništeno\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Otkazano"
 
 #. module: account_budget
 #: model:ir.actions.act_window,help:account_budget.act_crossovered_budget_view
@@ -255,13 +291,13 @@ msgstr "Kreirao"
 #: model:ir.model.fields,field_description:account_budget.field_account_budget_report_create_date
 #: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_create_date
 #: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_lines_create_date
+#, fuzzy
 msgid "Created on"
-msgstr "Kreiran dana"
-
-#. module: account_budget
-#: model:ir.model.fields,help:account_budget.field_crossovered_budget_message_last_post
-msgid "Date of the last message posted on the record."
-msgstr "Datum zadnje poslate poruke na slog."
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Kreiran dana\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Kreiran"
 
 #. module: account_budget
 #: model:ir.ui.view,arch_db:account_budget.report_analyticaccountbudget
@@ -293,8 +329,13 @@ msgstr "Završeno"
 #. module: account_budget
 #: selection:crossovered.budget,state:0
 #: model:ir.ui.view,arch_db:account_budget.view_crossovered_budget_search
+#, fuzzy
 msgid "Draft"
-msgstr "U nacrtu"
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"U nacrtu\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Priprema"
 
 #. module: account_budget
 #: model:ir.ui.view,arch_db:account_budget.view_crossovered_budget_search
@@ -304,31 +345,26 @@ msgstr "Budžeti u nacrtu"
 #. module: account_budget
 #: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_date_to
 #: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_lines_date_to
+#, fuzzy
 msgid "End Date"
-msgstr "Završni datum"
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Završni datum\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Završni Datum"
 
 #. module: account_budget
 #: model:ir.model.fields,field_description:account_budget.field_account_budget_analytic_date_to
 #: model:ir.model.fields,field_description:account_budget.field_account_budget_crossvered_report_date_to
 #: model:ir.model.fields,field_description:account_budget.field_account_budget_crossvered_summary_report_date_to
 #: model:ir.model.fields,field_description:account_budget.field_account_budget_report_date_to
+#, fuzzy
 msgid "End of period"
-msgstr "Kraj perioda"
-
-#. module: account_budget
-#: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_message_follower_ids
-msgid "Followers"
-msgstr "Pratioci"
-
-#. module: account_budget
-#: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Pratioci (kanali)"
-
-#. module: account_budget
-#: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_message_partner_ids
-msgid "Followers (Partners)"
-msgstr "Pratioci (partneri)"
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Kraj perioda\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Završetak perioda"
 
 #. module: account_budget
 #: model:ir.model.fields,field_description:account_budget.field_account_budget_analytic_id
@@ -343,26 +379,6 @@ msgstr "Pratioci (partneri)"
 #: model:ir.model.fields,field_description:account_budget.field_report_account_budget_report_crossoveredbudget_id
 msgid "ID"
 msgstr "ID"
-
-#. module: account_budget
-#: model:ir.model.fields,help:account_budget.field_crossovered_budget_message_unread
-msgid "If checked new messages require your attention."
-msgstr "Ako je označeno, nove poruke zahtjevaju pažnju"
-
-#. module: account_budget
-#: model:ir.model.fields,help:account_budget.field_crossovered_budget_message_needaction
-msgid "If checked, new messages require your attention."
-msgstr "Ako je označeno, nove poruke zahtjevaju pažnju"
-
-#. module: account_budget
-#: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_message_is_follower
-msgid "Is Follower"
-msgstr "Je pratioc"
-
-#. module: account_budget
-#: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_message_last_post
-msgid "Last Message Date"
-msgstr "Datum zadnje poruke"
 
 #. module: account_budget
 #: model:ir.model.fields,field_description:account_budget.field_account_budget_analytic___last_update
@@ -401,34 +417,14 @@ msgid "Last Updated on"
 msgstr "Zadnja izmjena"
 
 #. module: account_budget
-#: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_message_ids
-msgid "Messages"
-msgstr "Poruke"
-
-#. module: account_budget
-#: model:ir.model.fields,help:account_budget.field_crossovered_budget_message_ids
-msgid "Messages and communication history"
-msgstr "Poruke i istorija komunikacije"
-
-#. module: account_budget
 #: model:ir.model.fields,field_description:account_budget.field_account_budget_post_name
+#, fuzzy
 msgid "Name"
-msgstr "Naziv"
-
-#. module: account_budget
-#: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_message_needaction_counter
-msgid "Number of Actions"
-msgstr "Broj akcija"
-
-#. module: account_budget
-#: model:ir.model.fields,help:account_budget.field_crossovered_budget_message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Broj poruka koje zahtjevaju akciju"
-
-#. module: account_budget
-#: model:ir.model.fields,help:account_budget.field_crossovered_budget_message_unread_counter
-msgid "Number of unread messages"
-msgstr "Broj nepročitanih poruka"
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Naziv\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Ime:"
 
 #. module: account_budget
 #: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_lines_paid_date
@@ -439,8 +435,13 @@ msgstr "Datum plaćanja"
 #: model:ir.ui.view,arch_db:account_budget.report_analyticaccountbudget
 #: model:ir.ui.view,arch_db:account_budget.report_budget
 #: model:ir.ui.view,arch_db:account_budget.report_crossoveredbudget
+#, fuzzy
 msgid "Perc(%)"
-msgstr "Procenat(%)"
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Procenat(%)\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Proc(%)"
 
 #. module: account_budget
 #: model:ir.ui.view,arch_db:account_budget.crossovered_budget_view_form
@@ -457,8 +458,13 @@ msgstr "Planirani iznos"
 #. module: account_budget
 #: model:ir.ui.view,arch_db:account_budget.report_analyticaccountbudget
 #: model:ir.ui.view,arch_db:account_budget.report_crossoveredbudget
+#, fuzzy
 msgid "Planned Amt"
-msgstr "Planirana zarada"
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Planirana zarada\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Planirana Zarada"
 
 #. module: account_budget
 #: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_lines_practical_amount
@@ -486,18 +492,33 @@ msgstr "Štampaj"
 #: model:ir.actions.act_window,name:account_budget.action_account_budget_analytic
 #: model:ir.actions.act_window,name:account_budget.action_account_budget_crossvered_report
 #: model:ir.ui.view,arch_db:account_budget.account_budget_report_view
+#, fuzzy
 msgid "Print Budgets"
-msgstr "Štampaj budžete"
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Štampaj budžete\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Ištampaj Budžete"
 
 #. module: account_budget
 #: model:ir.actions.act_window,name:account_budget.action_account_budget_crossvered_summary_report
+#, fuzzy
 msgid "Print Summary"
-msgstr "Štampaj rezime"
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Štampaj rezime\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Ištampaj rezime"
 
 #. module: account_budget
 #: model:ir.ui.view,arch_db:account_budget.crossovered_budget_view_form
+#, fuzzy
 msgid "Reset to Draft"
-msgstr "Vrati u izradu"
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Vrati u izradu\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Posalji 'U Pripremu'"
 
 #. module: account_budget
 #: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_creating_user_id
@@ -563,13 +584,23 @@ msgstr "Ovaj wizard se upotrebljava za štampanje budžeta"
 
 #. module: account_budget
 #: model:ir.ui.view,arch_db:account_budget.account_budget_crossvered_summary_report_view
+#, fuzzy
 msgid "This wizard is used to print summary of budgets"
-msgstr "Ovaj wizard se upotrebljava za štampanje rezimea budžeta"
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Ovaj wizard se upotrebljava za štampanje rezimea budžeta\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Ovaj wizard se upotrebljava za štampanje rezimee budžeta"
 
 #. module: account_budget
 #: model:ir.ui.view,arch_db:account_budget.view_crossovered_budget_search
+#, fuzzy
 msgid "To Approve"
-msgstr "Čeka odobrenje"
+msgstr ""
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Čeka odobrenje\n"
+"#-#-#-#-#  sr@latin.po (Odoo 9.0)  #-#-#-#-#\n"
+"Dozvoliti"
 
 #. module: account_budget
 #: model:ir.ui.view,arch_db:account_budget.view_crossovered_budget_search
@@ -577,29 +608,9 @@ msgid "To Approve Budgets"
 msgstr "Budžeti koji čekaju odobrenje"
 
 #. module: account_budget
-#: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_message_unread
-msgid "Unread Messages"
-msgstr "Nepročitane poruke"
-
-#. module: account_budget
-#: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_message_unread_counter
-msgid "Unread Messages Counter"
-msgstr "Brojač nepročitanih poruka"
-
-#. module: account_budget
 #: selection:crossovered.budget,state:0
 msgid "Validated"
 msgstr "Potvrđeno"
-
-#. module: account_budget
-#: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_website_message_ids
-msgid "Website Messages"
-msgstr "Poruke sa web stranice"
-
-#. module: account_budget
-#: model:ir.model.fields,help:account_budget.field_crossovered_budget_website_message_ids
-msgid "Website communication history"
-msgstr "Istorija komunikacije sa web sajta"
 
 #. module: account_budget
 #: model:ir.ui.view,arch_db:account_budget.report_budget
@@ -627,3 +638,57 @@ msgstr "report.account_budget.report_crossoveredbudget"
 #: model:ir.ui.view,arch_db:account_budget.report_crossoveredbudget
 msgid "to"
 msgstr "do"
+
+#~ msgid "Action Needed"
+#~ msgstr "Potrebna akcija"
+
+#~ msgid "Date of the last message posted on the record."
+#~ msgstr "Datum zadnje poslate poruke na slog."
+
+#~ msgid "Followers"
+#~ msgstr "Pratioci"
+
+#~ msgid "Followers (Channels)"
+#~ msgstr "Pratioci (kanali)"
+
+#~ msgid "Followers (Partners)"
+#~ msgstr "Pratioci (partneri)"
+
+#~ msgid "If checked new messages require your attention."
+#~ msgstr "Ako je označeno, nove poruke zahtjevaju pažnju"
+
+#~ msgid "If checked, new messages require your attention."
+#~ msgstr "Ako je označeno, nove poruke zahtjevaju pažnju"
+
+#~ msgid "Is Follower"
+#~ msgstr "Je pratioc"
+
+#~ msgid "Last Message Date"
+#~ msgstr "Datum zadnje poruke"
+
+#~ msgid "Messages"
+#~ msgstr "Poruke"
+
+#~ msgid "Messages and communication history"
+#~ msgstr "Poruke i istorija komunikacije"
+
+#~ msgid "Number of Actions"
+#~ msgstr "Broj akcija"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Broj poruka koje zahtjevaju akciju"
+
+#~ msgid "Number of unread messages"
+#~ msgstr "Broj nepročitanih poruka"
+
+#~ msgid "Unread Messages"
+#~ msgstr "Nepročitane poruke"
+
+#~ msgid "Unread Messages Counter"
+#~ msgstr "Brojač nepročitanih poruka"
+
+#~ msgid "Website Messages"
+#~ msgstr "Poruke sa web stranice"
+
+#~ msgid "Website communication history"
+#~ msgstr "Istorija komunikacije sa web sajta"
