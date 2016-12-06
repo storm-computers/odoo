@@ -1,39 +1,33 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-import time
-from openerp.osv import osv, fields
+from odoo import api, fields, models
+from odoo.exceptions import UserError
 
 
-class pos_details(osv.osv_memory):
-    _name = 'pos.details'
-    _description = 'Sales Details'
+class PosDetails(models.TransientModel):
+    _name = 'pos.details.wizard'
+    _description = 'Open Sale Details Report'
 
-    _columns = {
-        'date_start': fields.date('Date Start', required=True),
-        'date_end': fields.date('Date End', required=True),
-        'user_ids': fields.many2many('res.users', 'pos_details_report_user_rel', 'user_id', 'wizard_id', 'Salespeople'),
-    }
-    _defaults = {
-        'date_start': fields.date.context_today,
-        'date_end': fields.date.context_today,
-    }
+    start_date = fields.Datetime(required=True, default=fields.Datetime.now)
+    end_date = fields.Datetime(required=True, default=fields.Datetime.now)
+    pos_config_ids = fields.Many2many('pos.config', 'pos_detail_configs',
+        default=lambda s: s.env['pos.config'].search([]))
 
-    def print_report(self, cr, uid, ids, context=None):
-        """
-         To get the date and print the report
-         @param self: The object pointer.
-         @param cr: A database cursor
-         @param uid: ID of the user currently logged in
-         @param context: A standard dictionary
-         @return : retrun report
-        """
-        if context is None:
-            context = {}
-        datas = {'ids': context.get('active_ids', [])}
-        res = self.read(cr, uid, ids, ['date_start', 'date_end', 'user_ids'], context=context)
-        res = res and res[0] or {}
-        datas['form'] = res
-        if res.get('id',False):
-            datas['ids']=[res['id']]
-        return self.pool['report'].get_action(cr, uid, [], 'point_of_sale.report_detailsofsales', data=datas, context=context)
+    @api.onchange('start_date')
+    def _onchange_start_date(self):
+        if self.start_date and self.end_date and self.end_date < self.start_date:
+            self.end_date = self.start_date
+
+    @api.onchange('end_date')
+    def _onchange_end_date(self):
+        if self.end_date and self.end_date < self.start_date:
+            self.start_date = self.end_date
+
+    @api.multi
+    def generate_report(self):
+        data = {'date_start': self.start_date, 'date_stop': self.end_date}
+        data.update(self.env['report.point_of_sale.report_saledetails'].get_sale_details(
+            self.start_date, self.end_date, self.pos_config_ids))
+        return self.env['report'].get_action(
+            [], 'point_of_sale.report_saledetails', data=data)

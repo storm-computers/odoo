@@ -1,20 +1,25 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * product_extended
-# 
+#
 # Translators:
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-07 14:41+0000\n"
-"PO-Revision-Date: 2016-11-07 17:45+0000\n"
-"Last-Translator: Gonzalo Ruzafa <gr@ingadhoc.com>\n"
-"Language-Team: Spanish (Argentina) (http://www.transifex.com/odoo/odoo-9/language/es_AR/)\n"
+"POT-Creation-Date: 2016-08-18 14:07+0000\n"
+"PO-Revision-Date: 2015-09-10 21:10+0000\n"
+"Last-Translator: Martin Trigaux\n"
+"Language-Team: Spanish (Argentina) (http://www.transifex.com/odoo/odoo-9/"
+"language/es_AR/)\n"
+"Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es_AR\n"
+"#-#-#-#-#  es_AR.po (Odoo 9.0)  #-#-#-#-#\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"#-#-#-#-#  es_AR.po (Odoo 9.0)  #-#-#-#-#\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: product_extended
@@ -22,17 +27,17 @@ msgstr ""
 #: code:addons/product_extended/wizard/wizard_price.py:40
 #, python-format
 msgid "Active ID is not set in Context."
-msgstr ""
+msgstr "El ID Activo no se ha establecido en el Contexto."
 
 #. module: product_extended
 #: model:ir.model,name:product_extended.model_mrp_bom
 msgid "Bill of Material"
-msgstr ""
+msgstr "Lista de materiales"
 
 #. module: product_extended
 #: model:ir.ui.view,arch_db:product_extended.view_compute_price_wizard
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: product_extended
 #: model:ir.ui.view,arch_db:product_extended.view_compute_price_wizard
@@ -51,17 +56,13 @@ msgstr ""
 
 #. module: product_extended
 #: model:ir.actions.act_window,name:product_extended.action_view_compute_price_wizard
+#: model:ir.model,name:product_extended.model_wizard_price
 msgid "Compute Price Wizard"
 msgstr ""
 
 #. module: product_extended
 #: model:ir.ui.view,arch_db:product_extended.product_product_ext_form_view2
 msgid "Compute from BOM"
-msgstr ""
-
-#. module: product_extended
-#: model:ir.model,name:product_extended.model_wizard_price
-msgid "Compute price wizard"
 msgstr ""
 
 #. module: product_extended
@@ -74,17 +75,17 @@ msgstr ""
 #. module: product_extended
 #: model:ir.model.fields,field_description:product_extended.field_wizard_price_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: product_extended
 #: model:ir.model.fields,field_description:product_extended.field_wizard_price_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado en"
 
 #. module: product_extended
 #: model:ir.model.fields,field_description:product_extended.field_wizard_price_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar Nombre"
 
 #. module: product_extended
 #: model:ir.model.fields,field_description:product_extended.field_wizard_price_real_time_accounting
@@ -94,32 +95,37 @@ msgstr ""
 #. module: product_extended
 #: model:ir.model.fields,field_description:product_extended.field_wizard_price_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: product_extended
 #: model:ir.model.fields,field_description:product_extended.field_wizard_price_info_field
 msgid "Info"
-msgstr ""
+msgstr "Información"
 
 #. module: product_extended
 #: model:ir.model.fields,field_description:product_extended.field_wizard_price___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación en"
 
 #. module: product_extended
 #: model:ir.model.fields,field_description:product_extended.field_wizard_price_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización realizada por"
 
 #. module: product_extended
 #: model:ir.model.fields,field_description:product_extended.field_wizard_price_write_date
 msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: product_extended
+#: model:ir.model.fields,field_description:product_extended.field_mrp_bom_get_variant_count
+msgid "Number of variant for the product"
 msgstr ""
 
 #. module: product_extended
 #: model:ir.model,name:product_extended.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Plantilla de Producto"
 
 #. module: product_extended
 #: model:ir.ui.view,arch_db:product_extended.view_compute_price_wizard
@@ -129,7 +135,7 @@ msgstr ""
 #. module: product_extended
 #: model:ir.model.fields,field_description:product_extended.field_mrp_bom_standard_price
 msgid "Standard Price"
-msgstr ""
+msgstr "Precio estándar"
 
 #. module: product_extended
 #: model:ir.ui.view,arch_db:product_extended.view_compute_price_wizard
@@ -142,6 +148,6 @@ msgstr ""
 #: code:addons/product_extended/wizard/wizard_price.py:38
 #, python-format
 msgid ""
-"This wizard is build for product templates, while you are currently running "
+"This wizard is built for product templates, while you are currently running "
 "it from a product variant."
 msgstr ""
