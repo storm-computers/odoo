@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
+
 import logging
 import os
 import re
@@ -8,8 +10,9 @@ from collections import namedtuple
 from os import listdir
 from threading import Thread, Lock
 
-import openerp.addons.hw_proxy.controllers.main as hw_proxy
-from openerp import http
+from odoo import http
+
+import odoo.addons.hw_proxy.controllers.main as hw_proxy
 
 _logger = logging.getLogger(__name__)
 
