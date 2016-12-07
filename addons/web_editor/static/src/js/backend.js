@@ -52,7 +52,7 @@ var FieldTextHtmlSimple = widget.extend({
         }
         return config;
     },
-    start: function() {
+    start: function () {
         var def = this._super.apply(this, arguments);
         this.$translate.remove();
         this.$translate = $();
@@ -60,7 +60,7 @@ var FieldTextHtmlSimple = widget.extend({
         this.$content.trigger('mouseup');
         return def;
     },
-    initialize_content: function() {
+    initialize_content: function () {
         var self = this;
         this.$textarea = this.$("textarea").val(this.get('value') || "<p><br/></p>");
         this.$content = $();
@@ -127,20 +127,20 @@ var FieldTextHtmlSimple = widget.extend({
         return value;
     },
     focus: function() {
-        if (this.get("effective_readonly")) {
+        if (!(!this.get("effective_readonly") && this.$textarea)) {
             return false;
         }
         // on IE an error may occur when creating range on not displayed element
         try {
-            return this.$content.focusInEnd();
+            return this.$textarea.focusInEnd();
         } catch (e) {
-            return this.$content.focus();
+            return this.$textarea.focus();
         }
     },
     resize: function() {
         this.$('iframe').css('height', '0px').css('height', Math.max(30, Math.min(this.$content[0] ? this.$content[0].scrollHeight : 0, 500)) + 'px');
     },
-    render_value: function() {
+    render_value: function () {
         var value = this.get('value');
         this.$textarea.val(value || '');
         this.$content.html(this.text_to_html(value));
@@ -157,10 +157,10 @@ var FieldTextHtmlSimple = widget.extend({
             this.$('.note-toolbar').find('button[data-event="undo"]').attr('disabled', false);
         }
     },
-    is_false: function() {
+    is_false: function () {
         return !this.get('value') || this.get('value') === "<p><br/></p>" || !this.get('value').match(/\S/);
     },
-    commit_value: function() {
+    commit_value: function () {
         if (this.options['style-inline']) {
             transcoder.class_to_style(this.$content);
             transcoder.font_to_img(this.$content);
@@ -199,6 +199,9 @@ var FieldTextHtml = widget.extend({
             self.internal_set_value(value);
             self.trigger('changed_value');
             self.resize();
+        };
+        window.odoo[this.callback+"_do_action"] = function () {
+            self.do_action.apply(self, arguments);
         };
 
         // init jqery objects
@@ -256,7 +259,7 @@ var FieldTextHtml = widget.extend({
             attr.translatable = 1;
         }
         if (session.debug) {
-            attr.debug = 1;
+            attr.debug = session.debug;
         }
 
         attr.lang = attr.enable_editor ? 'en_US' : this.session.user_context.lang;
@@ -279,7 +282,7 @@ var FieldTextHtml = widget.extend({
         src += "&datarecord="+ encodeURIComponent(JSON.stringify(datarecord));
         return src;
     },
-    initialize_content: function() {
+    initialize_content: function () {
         this.$el.closest('.modal-body').css('max-height', 'none');
         this.$iframe = this.$el.find('iframe');
         this.document = null;
@@ -345,7 +348,7 @@ var FieldTextHtml = widget.extend({
             self.initialize_content();
         });
     },
-    render_value: function() {
+    render_value: function () {
         if (this.lang !== this.view.dataset.context.lang || this.$iframe.attr('src').match(/[?&]edit_translations=1/)) {
             return;
         }
@@ -365,7 +368,7 @@ var FieldTextHtml = widget.extend({
             }
         }
     },
-    is_false: function() {
+    is_false: function () {
         return this.get('value') === false || !this.$content.html() || !this.$content.html().match(/\S/);
     },
     commit_value: function () {
@@ -384,6 +387,7 @@ var FieldTextHtml = widget.extend({
         delete window.odoo[this.callback+"_content"];
         delete window.odoo[this.callback+"_updown"];
         delete window.odoo[this.callback+"_downup"];
+        delete window.odoo[this.callback+"_do_action"];
     }
 });
 
